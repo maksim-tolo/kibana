@@ -1,4 +1,18 @@
 {
   "UI-WELCOME_MESSAGE": "Loading Kibana",
-  "UI-WELCOME_ERROR": "Kibana did not load properly. Check the server output for more information."
+  "UI-WELCOME_ERROR": "Kibana did not load properly. Check the server output for more information.",
+  "KIBANA-NAV-DISCOVER_TITLE": "Discover",
+  "KIBANA-NAV-VISUALIZE_TITLE": "Visualize",
+  "KIBANA-NAV-DASHBOARD_TITLE": "Dashboard",
+  "KIBANA-NAV-DEV_TOOLS_TITLE": "Dev Tools",
+  "KIBANA-NAV-MANAGEMENT_TITLE": "Management",
+  "KIBANA-HEADER-TITLE": "Create index pattern",
+  "KIBANA-HEADER-SWITCH_LABEL": "Include system indices",
+  "KIBANA-MANAGEMENT-OBJECTS-TITLE": "Edit Saved Objects",
+  "KIBANA-MANAGEMENT-OBJECTS-EXPORT_BUTTON": "Export Everything",
+  "KIBANA-MANAGEMENT-OBJECTS-IMPORT_BUTTON": "Import",
+  "KIBANA-MANAGEMENT-OBJECTS-INTRO": "From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list.",
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_LABEL" : "{LENGTH} of {TOTAL_LENGTH} {TITLE}",
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH" : "({LENGTH} of {TOTAL_LENGTH})",
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_SHORT" : "({LENGTH})"
 }

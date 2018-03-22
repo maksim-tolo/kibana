@@ -11,7 +11,7 @@
     href="{{ getHref() }}"
     ng-click="onClick({ $event: $event })"
     data-test-subj="appLink"
-    aria-label="{{::label}}"
+    aria-label="{{::label | translate}}"
   >
     <div class="global-nav-link__icon">
       <img
@@ -26,12 +26,12 @@
         class="global-nav-link__icon-placeholder"
         data-test-subj="appLinkIconPlaceholder"
       >
-        {{ label[0] }}
+        {{ label[0] | translate}}
       </span>
     </div>
 
     <div class="global-nav-link__title">
-      {{ label }}
+      {{ label | translate}}
     </div>
   </a>
 </div>

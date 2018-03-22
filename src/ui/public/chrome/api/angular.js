@@ -1,3 +1,5 @@
+import 'angular-translate';
+import 'angular-translate-interpolation-messageformat';
 import _ from 'lodash';
 import { format as formatUrl, parse as parseUrl } from 'url';
 
@@ -13,7 +15,7 @@ export function initAngularApi(chrome, internals) {
   chrome.getFirstPathSegment = _.noop;
 
   chrome.setupAngular = function () {
-    const kibana = uiModules.get('kibana');
+    const kibana = uiModules.get('kibana', ['pascalprecht.translate']);
 
     _.forOwn(chrome.getInjected(), function (val, name) {
       kibana.value(name, val);
@@ -32,6 +34,14 @@ export function initAngularApi(chrome, internals) {
         a.href = chrome.addBasePath('/elasticsearch');
         return a.href;
       }()))
+      .config(function ($translateProvider) {
+        const translations = chrome.getTranslations();
+
+        $translateProvider.translations(translations.locale, translations);
+        $translateProvider.preferredLanguage(translations.locale);
+        $translateProvider.useSanitizeValueStrategy('escape');
+        $translateProvider.useMessageFormatInterpolation();
+      })
       .config(chrome.$setupXsrfRequestInterceptor)
       .config(function ($compileProvider, $locationProvider) {
         if (!internals.devMode) {

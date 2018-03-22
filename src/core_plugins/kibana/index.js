@@ -70,21 +70,21 @@ export default function (kibana) {
       links: [
         {
           id: 'kibana:discover',
-          title: 'Discover',
+          title: 'KIBANA-NAV-DISCOVER_TITLE',
           order: -1003,
           url: `${kbnBaseUrl}#/discover`,
           description: 'interactively explore your data',
           icon: 'plugins/kibana/assets/discover.svg',
         }, {
           id: 'kibana:visualize',
-          title: 'Visualize',
+          title: 'KIBANA-NAV-VISUALIZE_TITLE',
           order: -1002,
           url: `${kbnBaseUrl}#/visualize`,
           description: 'design data visualizations',
           icon: 'plugins/kibana/assets/visualize.svg',
         }, {
           id: 'kibana:dashboard',
-          title: 'Dashboard',
+          title: 'KIBANA-NAV-DASHBOARD_TITLE',
           order: -1001,
           url: `${kbnBaseUrl}#/dashboards`,
           // The subUrlBase is the common substring of all urls for this app. If not given, it defaults to the url
@@ -97,14 +97,14 @@ export default function (kibana) {
           icon: 'plugins/kibana/assets/dashboard.svg',
         }, {
           id: 'kibana:dev_tools',
-          title: 'Dev Tools',
+          title: 'KIBANA-NAV-DEV_TOOLS_TITLE',
           order: 9001,
           url: '/app/kibana#/dev_tools',
           description: 'development tools',
           icon: 'plugins/kibana/assets/wrench.svg'
         }, {
           id: 'kibana:management',
-          title: 'Management',
+          title: 'KIBANA-NAV-MANAGEMENT_TITLE',
           order: 9003,
           url: `${kbnBaseUrl}#/management`,
           description: 'define index patterns, change config, and more',

@@ -13,6 +13,7 @@ uiRoutes.when('/management/kibana/index', {
     const kbnUrl = $injector.get('kbnUrl');
     $scope.$$postDigest(() => {
       const $routeParams = $injector.get('$routeParams');
+      const $translate = $injector.get('$translate');
       const services = {
         config: $injector.get('config'),
         es: $injector.get('es'),
@@ -24,11 +25,15 @@ uiRoutes.when('/management/kibana/index', {
       };
 
       const initialQuery = $routeParams.id ? decodeURIComponent($routeParams.id) : undefined;
+      const locale = $translate.preferredLanguage();
+      const messages = $translate.getTranslationTable(locale);
 
       renderCreateIndexPatternWizard(
         documentationLinks.indexPatterns.loadingData,
         initialQuery,
-        services
+        services,
+        messages,
+        locale,
       );
     });
 
