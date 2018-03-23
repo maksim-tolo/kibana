@@ -17,8 +17,13 @@
               class="kuiIcon fa-undo small"
             ></span>&nbsp;
           </span>
-          <span data-test-subj="discoverQueryHits" class="kuiLocalBreadcrumb__emphasis">{{(hits || 0) | number:0}}</span>
-          <ng-pluralize count="hits" when="{'1':'hit', 'other':'hits'}"></ng-pluralize>
+          <span
+            data-test-subj="discoverQueryHits"
+            class="kuiLocalBreadcrumb__emphasis"
+            translate="KIBANA-DISCOVER-HITS"
+            translate-values="{HITS: {{(hits || 0) | number:0}}}"
+            translate-default="{HITS, plural, one {# hit} other {# hits}}"
+          ></span>
         </h1>
       </div>
 
@@ -65,7 +70,10 @@
           <div ng-show="resultState === 'loading'">
             <div class="discover-overlay">
               <div class="euiTitle">
-                <h2>Searching</h2>
+                <h2
+                  translate="KIBANA-DISCOVER-SEARCHING"
+                  translate-default="Searching"
+                ></h2>
               </div>
               <div class="euiSpacer euiSpacer--m"></div>
               <div ng-show="fetchStatus">{{fetchStatus.complete}}/{{fetchStatus.total}}</div>
@@ -80,14 +88,25 @@
             >
               <span class="kuiButton__inner">
                 <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-chevron-down"></span>
-                <span>Skip to bottom</span>
+                <span
+                  translate="KIBANA-DISCOVER-SKIP_TO_BOTTOM"
+                  translate-default="Skip to bottom"
+                ></span>
               </span>
             </button>
 
-            <section aria-label="Histogram of found documents" class="discover-timechart" ng-if="opts.timefield">
+            <section
+              aria-label="{{'KIBANA-DISCOVER-DOCUMENTS_HISTOGRAM' | translate}}"
+              translate-default="Histogram of found documents"
+              class="discover-timechart"
+              ng-if="opts.timefield"
+            >
               <header>
                 <center class="small">
-                  <span tooltip="To change the time, click the clock icon in the navigation bar">{{timeRange.from | moment}} - {{timeRange.to | moment}}</span>
+                  <span
+                    tooltip="{{'KIBANA-DISCOVER-TIME_RANGE_HELPER' | translate}}"
+                    translate-default="To change the time, click the clock icon in the navigation bar"
+                  >{{timeRange.from | moment}} - {{timeRange.to | moment}}</span>
 
                   &mdash;
 
@@ -104,9 +123,16 @@
                       <kbn-info
                         placement="right"
                         class="kuiIcon--info"
-                        info="This interval creates {{ bucketInterval.scale > 1 ? 'buckets that are too large' : 'too many buckets' }} to show in the selected time range, so it has been scaled to {{ bucketInterval.description }}">
-                      </kbn-info>
-                      Scaled to {{ bucketInterval.description }}
+                        info="This interval creates {{ bucketInterval.scale > 1 ? 'buckets that are too large' : 'too many buckets' }} to show in the selected time range, so it has been scaled to {{ bucketInterval.description }}"
+                        info="{{bucketInterval.scale > 1 ? 'KIBANA-DISCOVER-INTERVAL_INFO_TOO_LARGE' : 'KIBANA-DISCOVER-INTERVAL_INFO_TOO_MANY' | translate: {
+                          DESCRIPTION: bucketInterval.description
+                        } }}"
+                      ></kbn-info>
+                      <span
+                        translate="KIBANA-DISCOVER-SCALED_TO"
+                        translate-values="{DESCRIPTION: bucketInterval.description}"
+                        translate-default="Scaled to {DESCRIPTION}"
+                      ></span>
                     </span>
                   </span>
                 </center>
@@ -148,9 +174,17 @@
               <a tabindex="0" id="discoverBottomMarker"></a>
 
               <div ng-if="rows.length == opts.sampleSize" class="discover-table-footer">
-                These are the first {{opts.sampleSize}} documents matching
-                your search, refine your search to see others.
-                <a kbn-accessible-click ng-click="scrollToTop()">Back to top.</a>
+                <span
+                  translate="KIBANA-DISCOVER-REFINE_SEARCH"
+                  translate-values="{SIZE: opts.sampleSize}"
+                  translate-default="These are the first {SIZE} documents matching your search, refine your search to see others."
+                ></span>
+                <a
+                  kbn-accessible-click
+                  ng-click="scrollToTop()"
+                  translate="KIBANA-DISCOVER-BACK_TO_TOP"
+                  translate-default="Back to top."
+                ></a>
               </div>
             </section>
           </div>
