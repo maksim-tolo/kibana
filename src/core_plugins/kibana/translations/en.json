@@ -22,7 +22,14 @@
   "KIBANA-MANAGEMENT-OBJECTS-EXPORT_BUTTON": "Export Everything",
   "KIBANA-MANAGEMENT-OBJECTS-IMPORT_BUTTON": "Import",
   "KIBANA-MANAGEMENT-OBJECTS-INTRO": "From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list.",
-  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_LABEL" : "{LENGTH} of {TOTAL_LENGTH} {TITLE}",
-  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH" : "({LENGTH} of {TOTAL_LENGTH})",
-  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_SHORT" : "({LENGTH})"
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_LABEL": "{LENGTH} of {TOTAL_LENGTH} {TITLE}",
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH": "({LENGTH} of {TOTAL_LENGTH})",
+  "KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_SHORT": "({LENGTH})",
+  "KIBANA-MANAGEMENT-OBJECTS-SEARCH": "Search",
+  "KIBANA-MANAGEMENT-OBJECTS-SEARCH_PLACEHOLDER": "Search...",
+  "KIBANA-MANAGEMENT-OBJECTS-DELETE_SELECTED_LABEL": "Delete selected objects",
+  "KIBANA-MANAGEMENT-OBJECTS-DELETE_SELECTED": "Delete",
+  "KIBANA-MANAGEMENT-OBJECTS-EXPORT_SELECTED_LABEL": "Export selected objects",
+  "KIBANA-MANAGEMENT-OBJECTS-EXPORT_SELECTED": "Export",
+  "KIBANA-MANAGEMENT-OBJECTS-NO_RESULTS": "No {TITLE} matched your search."
 }

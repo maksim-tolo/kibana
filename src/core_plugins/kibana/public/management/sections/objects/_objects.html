@@ -105,8 +105,8 @@
             <input
               class="kuiToolBarSearchBox__input"
               type="text"
-              placeholder="Search..."
-              aria-label="Search"
+              placeholder="{{'KIBANA-MANAGEMENT-OBJECTS-SEARCH_PLACEHOLDER' | translate}}"
+              aria-label="{{'KIBANA-MANAGEMENT-OBJECTS-SEARCH' | translate}}"
               ng-model="managementObjectsController.advancedFilter"
             >
           </div>
@@ -117,12 +117,16 @@
           <button
             class="kuiButton kuiButton--danger kuiButton--iconText"
             ng-click="bulkDelete()"
-            aria-label="Delete selected objects"
+            aria-label="{{'KIBANA-MANAGEMENT-OBJECTS-DELETE_SELECTED_LABEL' | translate}}"
+            translate-default="Delete selected objects"
             ng-disabled="selectedItems.length == 0"
           >
             <span class="kuiButton__inner">
               <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-trash"></span>
-              <span>Delete</span>
+              <span
+                translate="KIBANA-MANAGEMENT-OBJECTS-DELETE_SELECTED"
+                translate-default="Delete"
+              ></span>
             </span>
           </button>
 
@@ -130,12 +134,16 @@
           <button
             class="kuiButton kuiButton--basic kuiButton--iconText"
             ng-click="bulkExport()"
-            aria-label="Export selected objects"
+            aria-label="{{'KIBANA-MANAGEMENT-OBJECTS-EXPORT_SELECTED_LABEL' | translate}}"
+            translate-default="Export selected objects"
             ng-disabled="selectedItems.length == 0"
           >
             <span class="kuiButton__inner">
               <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-download"></span>
-              <span>Export</span>
+              <span
+                translate="KIBANA-MANAGEMENT-OBJECTS-EXPORT_SELECTED"
+                translate-default="Export"
+              ></span>
             </span>
           </button>
         </div>
@@ -150,9 +158,12 @@
         class="kuiPanel kuiPanel--centered kuiPanel--withToolBar"
         ng-if="!service.data.length"
       >
-        <div class="kuiTableInfo">
-          No {{service.title}} matched your search.
-        </div>
+        <div
+          class="kuiTableInfo"
+          translate="KIBANA-MANAGEMENT-OBJECTS-NO_RESULTS"
+          translate-values="{TITLE: service.title}"
+          translate-default="No {TITLE} matched your search."
+        ></div>
       </div>
 
       <!-- Table -->
