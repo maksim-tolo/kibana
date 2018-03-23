@@ -1,5 +1,7 @@
 @import (reference) "~ui/styles/variables";
 
+@global-nav-open-width-locale-ru: 230px;
+
 .global_nav_logo {
   display: inline-block;
 
@@ -43,6 +45,10 @@
 .is-global-nav-open {
   .global-nav-link {
     width: @global-nav-open-width;
+
+    &:lang(ru) {
+      width: @global-nav-open-width-locale-ru;
+    }
   }
 }
 
@@ -95,6 +101,10 @@
 
     .is-global-nav-open & {
       display: inline-block;
+    }
+
+    &:lang(ru) {
+      width: calc(@global-nav-open-width-locale-ru - @global-nav-closed-width);
     }
   }
 
