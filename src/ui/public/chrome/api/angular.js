@@ -1,5 +1,4 @@
-import 'ng-i18next';
-import { init } from 'i18next';
+import i18next from 'i18next';
 import _ from 'lodash';
 import { format as formatUrl, parse as parseUrl } from 'url';
 
@@ -12,20 +11,21 @@ import { directivesProvider } from '../directives';
 const URL_LIMIT_WARN_WITHIN = 1000;
 
 export function initAngularApi(chrome, internals) {
-  const translations = chrome.getTranslations();
-
-  init({
-    lng: translations.locale,
-    resources: {
-      [translations.locale]: {
-        translation: translations,
-      },
-    },
-  });
-
   chrome.getFirstPathSegment = _.noop;
 
   chrome.setupAngular = function () {
+    const translations = chrome.getTranslations();
+
+    // eslint-disable-next-line import/no-named-as-default-member
+    i18next.init({
+      lng: translations.locale,
+      resources: {
+        [translations.locale]: {
+          translation: translations,
+        },
+      },
+    });
+
     const kibana = uiModules.get('kibana', ['jm.i18next']);
 
     _.forOwn(chrome.getInjected(), function (val, name) {
