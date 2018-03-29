@@ -3,6 +3,7 @@
 @import (reference) "~ui/styles/variables";
 
 @global-nav-logo-height: 70px;
+@global-nav-open-width-locale-ru: 230px;
 
 .global-nav {
   width: @global-nav-closed-width;
@@ -17,12 +18,20 @@
   &.is-global-nav-open {
     width: @global-nav-open-width;
 
+    &:lang(ru) {
+      width: @global-nav-open-width-locale-ru;
+    }
+
     .app-title {
       display: inline-block;
     }
 
     + .app-wrapper {
       left: @global-nav-open-width;
+
+      &:lang(ru) {
+        left: @global-nav-open-width-locale-ru;
+      }
     }
   }
 
@@ -36,6 +45,10 @@
       background-position: 10px 14px;
       background-size: 120px 42px;
       background-repeat: no-repeat;
+    }
+
+    &:lang(ru) {
+      width: @global-nav-open-width-locale-ru;
     }
   }
 }

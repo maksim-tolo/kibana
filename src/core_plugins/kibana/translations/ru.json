@@ -1,0 +1,9 @@
+{
+  "UI-WELCOME_MESSAGE": "Загрузка Kibana",
+  "UI-WELCOME_ERROR": "Ошибка загрузки Kibana. Проверьте вывод сервера для большей информации.",
+  "KIBANA-NAV-DISCOVER_TITLE": "Обзор",
+  "KIBANA-NAV-VISUALIZE_TITLE": "Визуализация",
+  "KIBANA-NAV-DASHBOARD_TITLE": "Панель управления",
+  "KIBANA-NAV-DEV_TOOLS_TITLE": "Инструменты разработчика",
+  "KIBANA-NAV-MANAGEMENT_TITLE": "Управление"
+}
