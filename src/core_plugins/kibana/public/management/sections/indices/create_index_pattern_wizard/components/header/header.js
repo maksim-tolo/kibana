@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans } from 'react-i18next';
 
 import {
   EuiSpacer,
@@ -17,7 +18,7 @@ export const Header = ({
   <div>
     <EuiSpacer size="m"/>
     <EuiTitle>
-      <h1>Create index pattern</h1>
+      <h1><Trans i18nKey="KIBANA-HEADER-TITLE" /></h1>
     </EuiTitle>
     <EuiFlexGroup justifyContent="spaceBetween" alignItems="flexEnd">
       <EuiFlexItem grow={false}>
