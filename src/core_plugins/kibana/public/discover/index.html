@@ -17,8 +17,13 @@
               class="kuiIcon fa-undo small"
             ></span>&nbsp;
           </span>
-          <span data-test-subj="discoverQueryHits" class="kuiLocalBreadcrumb__emphasis">{{(hits || 0) | number:0}}</span>
-          <ng-pluralize count="hits" when="{'1':'hit', 'other':'hits'}"></ng-pluralize>
+          <span
+            data-test-subj="discoverQueryHits"
+            class="kuiLocalBreadcrumb__emphasis"
+            ng-i18next="[i18next]({
+              count: {{ hits || 0 }},
+            })KIBANA-DISCOVER-HITS"
+          ></span>
         </h1>
       </div>
 
