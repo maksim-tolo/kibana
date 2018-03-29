@@ -3,9 +3,10 @@
     <!-- Header -->
     <div class="kuiViewContentItem kuiBar kuiVerticalRhythm">
       <div class="kuiBarSection">
-        <h1 class="euiTitle">
-          Edit Saved Objects
-        </h1>
+        <h1
+          class="euiTitle"
+          ng-i18next="[i18next]({ defaultValue: 'Edit Saved Objects' })KIBANA-MANAGEMENT-OBJECTS-TITLE"
+        ></h1>
       </div>
 
       <div class="kuiBarSection">
@@ -16,7 +17,9 @@
         >
           <span class="kuiButton__inner">
             <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-download"></span>
-            <span>Export Everything</span>
+            <span
+              ng-i18next="[i18next]({ defaultValue: 'Export Everything' })KIBANA-MANAGEMENT-OBJECTS-EXPORT_BUTTON"
+            ></span>
           </span>
         </button>
 
@@ -30,7 +33,9 @@
           >
             <span class="kuiButton__inner">
               <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-upload"></span>
-              <span>Import</span>
+              <span
+                ng-i18next="[i18next]({ defaultValue: 'Import' })KIBANA-MANAGEMENT-OBJECTS-IMPORT_BUTTON"
+              ></span>
             </span>
           </button>
         </file-upload>
@@ -39,9 +44,10 @@
 
     <!-- Intro -->
     <div class="euiText">
-      <p class="kuiViewContentItem">
-        From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list.
-      </p>
+      <p
+        class="kuiViewContentItem"
+        ng-i18next="[i18next]({ defaultValue: 'From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list.' })KIBANA-MANAGEMENT-OBJECTS-INTRO"
+      ></p>
     </div>
 
     <div class="euiSpacer euiSpacer--m"></div>
@@ -57,8 +63,21 @@
           data-test-subj="objectsTab-{{ service.title }}"
         >
           {{ service.title }}
-          <small aria-label="{{:: service.data.length + ' of ' + service.total + ' ' + service.title }}">
-            ({{service.data.length}}<span ng-show="service.total > service.data.length"> of {{service.total}}</span>)
+          <small
+            ng-i18next="[aria-label:i18next]({
+              LENGTH: '{{ service.data.length }}',
+              TOTAL_LENGTH: '{{ service.total }}',
+              TITLE: '{{ service.title }}'
+            })KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_LABEL"
+          >
+            <span
+              ng-i18next="[i18next]({
+                LENGTH: '{{ service.data.length }}',
+                TOTAL_LENGTH: '1',
+              }){{service.total > service.data.length ?
+                  'KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH' :
+                  'KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_SHORT'}}"
+            ></span>
           </small>
         </button>
       </div>
