@@ -40,6 +40,9 @@ export function initAngularApi(chrome, internals) {
 
         $locationProvider.hashPrefix('');
       })
+      .config(function (i18nProvider) {
+        i18nProvider.addTranslation(chrome.getTranslations());
+      })
       .run(($location, $rootScope, Private, config) => {
         chrome.getFirstPathSegment = () => {
           return $location.path().split('/')[1];
