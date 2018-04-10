@@ -3,9 +3,11 @@
     <!-- Header -->
     <div class="kuiViewContentItem kuiBar kuiVerticalRhythm">
       <div class="kuiBarSection">
-        <h1 class="euiTitle">
-          Edit Saved Objects
-        </h1>
+        <h1
+          class="euiTitle"
+          i18n="KIBANA-MANAGEMENT-OBJECTS-TITLE"
+          default-message="Edit Saved Objects"
+        ></h1>
       </div>
 
       <div class="kuiBarSection">
@@ -81,7 +83,7 @@
             <input
               class="kuiToolBarSearchBox__input"
               type="text"
-              placeholder="Search..."
+              placeholder="{{'KIBANA-MANAGEMENT-OBJECTS-SEARCH_PLACEHOLDER' | i18n: { defaultMessage: 'Search...' } }}"
               aria-label="Search"
               ng-model="managementObjectsController.advancedFilter"
             >

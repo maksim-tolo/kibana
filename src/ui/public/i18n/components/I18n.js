@@ -3,41 +3,29 @@ import PropTypes from 'prop-types';
 
 import { I18nConsumer } from './I18nProvider';
 
-const isFunction = value => typeof value === 'function';
-
-const translateMessage = (messages, {
+import {
+  isFunction,
   translate,
-  vars,
-  defaultMessage,
-}) => {
-  if (isFunction(messages.get)) {
-    const message = messages.get(translate, vars);
-
-    if (message !== translate) {
-      return message;
-    }
-  }
-
-  return defaultMessage || translate;
-};
+} from '../common';
 
 export class I18n extends PureComponent {
   static propTypes = {
-    translate: PropTypes.string,
+    path: PropTypes.string,
     vars: PropTypes.object,
     defaultMessage: PropTypes.string,
     children: PropTypes.any,
   };
 
   static defaultProps = {
-    translate: '',
+    path: '',
     vars: {},
+    defaultMessage: '',
   };
 
   render() {
     const {
       children,
-      translate,
+      path,
       vars,
       defaultMessage,
     } = this.props;
@@ -46,9 +34,9 @@ export class I18n extends PureComponent {
       <I18nConsumer>
         {messages =>
           isFunction(children) ?
-            children(translateMessage.bind(null, messages)) :
-            translateMessage(messages, {
-              translate,
+            children(translate.bind(null, messages)) :
+            translate(messages, {
+              path,
               vars,
               defaultMessage,
             })}

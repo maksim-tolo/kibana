@@ -20,7 +20,10 @@ export const Header = ({
     <EuiSpacer size="m"/>
     <EuiTitle>
       <h1>
-        <I18n translate="KIBANA-HEADER-TITLE" />
+        <I18n
+          path="KIBANA-HEADER-TITLE"
+          defaultMessage="Create index pattern"
+        />
       </h1>
     </EuiTitle>
     <EuiFlexGroup justifyContent="spaceBetween" alignItems="flexEnd">
