@@ -27,6 +27,14 @@ uiModules.get('i18n')
     };
 
     this.$get = function () {
-      return (path, vars) => messages[currentLocale].get(path, vars);
+      function i18n(path, vars) {
+        return messages[currentLocale].get(path, vars);
+      }
+
+      i18n.getMessages = function () {
+        return messages[currentLocale];
+      };
+
+      return i18n;
     };
   });

@@ -10,6 +10,8 @@ import {
   EuiSwitch,
 } from '@elastic/eui';
 
+import { I18n } from 'ui/i18n';
+
 export const Header = ({
   isIncludingSystemIndices,
   onChangeIncludingSystemIndices,
@@ -17,7 +19,9 @@ export const Header = ({
   <div>
     <EuiSpacer size="m"/>
     <EuiTitle>
-      <h1>Create index pattern</h1>
+      <h1>
+        <I18n translate="KIBANA-HEADER-TITLE" />
+      </h1>
     </EuiTitle>
     <EuiFlexGroup justifyContent="spaceBetween" alignItems="flexEnd">
       <EuiFlexItem grow={false}>
