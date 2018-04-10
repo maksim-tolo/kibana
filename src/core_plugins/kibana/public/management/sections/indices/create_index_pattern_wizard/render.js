@@ -10,7 +10,6 @@ export function renderCreateIndexPatternWizard(
   loadingDataDocUrl,
   initialQuery,
   services,
-  messages,
 ) {
   const node = document.getElementById(CREATE_INDEX_PATTERN_DOM_ELEMENT_ID);
   if (!node) {
@@ -18,7 +17,7 @@ export function renderCreateIndexPatternWizard(
   }
 
   render(
-    <I18nProvider value={messages}>
+    <I18nProvider value={services.i18n}>
       <CreateIndexPatternWizard
         loadingDataDocUrl={loadingDataDocUrl}
         initialQuery={initialQuery}

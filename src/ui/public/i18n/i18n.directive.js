@@ -1,11 +1,7 @@
 import { uiModules } from 'ui/modules';
 
-import { translate } from './common';
-
 uiModules.get('i18n')
   .directive('i18n', function (i18n) {
-    const translateMessage = translate.bind(null, i18n.getMessages());
-
     return {
       restrict: 'A',
       scope: {
@@ -24,7 +20,7 @@ uiModules.get('i18n')
           defaultMessage = '',
         ]) {
           if (path) {
-            $element.text(translateMessage({
+            $element.html(i18n({
               path,
               vars,
               defaultMessage,

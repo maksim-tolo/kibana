@@ -13,7 +13,6 @@ uiRoutes.when('/management/kibana/index', {
     const kbnUrl = $injector.get('kbnUrl');
     $scope.$$postDigest(() => {
       const $routeParams = $injector.get('$routeParams');
-      const i18n = $injector.get('i18n');
       const services = {
         config: $injector.get('config'),
         es: $injector.get('es'),
@@ -22,16 +21,15 @@ uiRoutes.when('/management/kibana/index', {
         changeUrl: url => {
           $scope.$evalAsync(() => kbnUrl.changePath(url));
         },
+        i18n: $injector.get('i18n'),
       };
 
       const initialQuery = $routeParams.id ? decodeURIComponent($routeParams.id) : undefined;
-      const messages = i18n.getMessages();
 
       renderCreateIndexPatternWizard(
         documentationLinks.indexPatterns.loadingData,
         initialQuery,
         services,
-        messages,
       );
     });
 

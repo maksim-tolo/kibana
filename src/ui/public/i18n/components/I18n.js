@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 import { I18nConsumer } from './I18nProvider';
 
-import {
-  isFunction,
-  translate,
-} from '../common';
+const isFunction = value => typeof value === 'function';
 
 export class I18n extends PureComponent {
   static propTypes = {
@@ -32,10 +29,10 @@ export class I18n extends PureComponent {
 
     return (
       <I18nConsumer>
-        {messages =>
+        {translate =>
           isFunction(children) ?
-            children(translate.bind(null, messages)) :
-            translate(messages, {
+            children(translate) :
+            translate({
               path,
               vars,
               defaultMessage,

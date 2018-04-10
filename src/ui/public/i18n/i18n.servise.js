@@ -27,8 +27,26 @@ uiModules.get('i18n')
     };
 
     this.$get = function () {
-      function i18n(path, vars) {
-        return messages[currentLocale].get(path, vars);
+      function i18n({
+        path = '',
+        vars = {},
+        defaultMessage = '',
+      }) {
+        const messages = i18n.getMessages();
+
+        if (messages.hasMessage(path)) {
+          return messages.get(path, vars);
+        }
+
+        // TODO: Add to cache
+        if (defaultMessage) {
+          const mf = new MessageFormat(currentLocale);
+          const msg = mf.compile(defaultMessage);
+
+          return msg(vars);
+        }
+
+        return path;
       }
 
       i18n.getMessages = function () {
