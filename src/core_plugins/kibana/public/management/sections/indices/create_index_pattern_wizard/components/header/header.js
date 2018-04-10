@@ -31,17 +31,27 @@ export const Header = ({
         <EuiText>
           <p>
             <EuiTextColor color="subdued">
-              Kibana uses index patterns to retrieve data from Elasticsearch indices for things like visualizations.
+              <I18n
+                path="KIBANA-HEADER-DESCRIPTION"
+                defaultMessage="Kibana uses index patterns to retrieve data from Elasticsearch indices for things like visualizations."
+              />
             </EuiTextColor>
           </p>
         </EuiText>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <EuiSwitch
-          label="Include system indices"
-          checked={isIncludingSystemIndices}
-          onChange={onChangeIncludingSystemIndices}
-        />
+        <I18n>
+          {translate => (
+            <EuiSwitch
+              label={translate({
+                path: 'KIBANA-HEADER-SWITCH_LABEL',
+                defaultMessage: 'Include system indices',
+              })}
+              checked={isIncludingSystemIndices}
+              onChange={onChangeIncludingSystemIndices}
+            />
+          )}
+        </I18n>
       </EuiFlexItem>
     </EuiFlexGroup>
     <EuiSpacer size="m"/>

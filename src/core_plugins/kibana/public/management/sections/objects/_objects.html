@@ -18,7 +18,10 @@
         >
           <span class="kuiButton__inner">
             <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-download"></span>
-            <span>Export Everything</span>
+            <span
+              i18n="KIBANA-MANAGEMENT-OBJECTS-EXPORT_BUTTON"
+              default-message="Export Everything"
+            ></span>
           </span>
         </button>
 
@@ -32,7 +35,10 @@
           >
             <span class="kuiButton__inner">
               <span aria-hidden="true" class="kuiButton__icon kuiIcon fa-upload"></span>
-              <span>Import</span>
+              <span
+                i18n="KIBANA-MANAGEMENT-OBJECTS-IMPORT_BUTTON"
+                default-message="Import"
+              ></span>
             </span>
           </button>
         </file-upload>
@@ -41,9 +47,11 @@
 
     <!-- Intro -->
     <div class="euiText">
-      <p class="kuiViewContentItem">
-        From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list.
-      </p>
+      <p
+        class="kuiViewContentItem"
+        i18n="KIBANA-MANAGEMENT-OBJECTS-INTRO"
+        default-message="From here you can delete saved objects, such as saved searches. You can also edit the raw data of saved objects. Typically objects are only modified via their associated application, which is probably what you should use instead of this screen. Each tab is limited to 100 results. You can use the filter to find objects not in the default list."
+      ></p>
     </div>
 
     <div class="euiSpacer euiSpacer--m"></div>
@@ -59,8 +67,22 @@
           data-test-subj="objectsTab-{{ service.title }}"
         >
           {{ service.title }}
-          <small aria-label="{{:: service.data.length + ' of ' + service.total + ' ' + service.title }}">
-            ({{service.data.length}}<span ng-show="service.total > service.data.length"> of {{service.total}}</span>)
+          <small
+            aria-label="{{::'KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_LABEL' | i18n: { vars: {
+              LENGTH: service.data.length,
+              TOTAL_LENGTH: service.total,
+              TITLE: service.title
+            } } }}"
+          >
+            <span
+              i18n="{{service.total > service.data.length ?
+                'KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH' :
+                'KIBANA-MANAGEMENT-OBJECTS-TABS_SERVICES_LENGTH_SHORT'}}"
+              vars="{
+                LENGTH: service.data.length,
+                TOTAL_LENGTH: service.total
+              }"
+            ></span>
           </small>
         </button>
       </div>
@@ -84,7 +106,7 @@
               class="kuiToolBarSearchBox__input"
               type="text"
               placeholder="{{'KIBANA-MANAGEMENT-OBJECTS-SEARCH_PLACEHOLDER' | i18n: { defaultMessage: 'Search...' } }}"
-              aria-label="Search"
+              aria-label="{{'KIBANA-MANAGEMENT-OBJECTS-SEARCH' | i18n: { defaultMessage: 'Search' } }}"
               ng-model="managementObjectsController.advancedFilter"
             >
           </div>
